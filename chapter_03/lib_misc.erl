@@ -15,3 +15,12 @@ qsort([Pivot|T]) ->
 	++ [Pivot] ++ 
 	qsort([X || X <- T, X >= Pivot]).
 
+%% Would be more efficient if we could just get the sequence once, and 
+%% reference it repeatedly, rather than generating it thrice.
+pythag(N) ->
+    [ {A, B, C} || A <- lists:seq(1,N),
+		   B <- lists:seq(1,N),
+		   C <- lists:seq(1,N),
+		   A+B+C =< N,
+		   A*A+B*B =:= C*C
+    ].
