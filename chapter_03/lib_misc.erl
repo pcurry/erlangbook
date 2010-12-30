@@ -24,3 +24,8 @@ pythag(N) ->
 		   A+B+C =< N,
 		   A*A+B*B =:= C*C
     ].
+
+%% Generates list permutations.
+perms([]) -> [[]];
+perms(L)  -> [[H|T] || H <- L, T <- perms(L--[H])].
+	      
