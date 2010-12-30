@@ -1,5 +1,5 @@
 -module(lib_misc).
--export([sum/1, for/3, qsort/1]).
+-export([pythag/1, qsort/1, sum/1, for/3]).
 
 sum(L)  -> sum(L, 0).
 
