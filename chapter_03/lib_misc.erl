@@ -6,9 +6,11 @@ sum(L)  -> sum(L, 0).
 sum([], N)    -> N;
 sum([H|T], N) -> sum(T, H+N).
 
+%% Roll your own 'for' loop.
 for(Max, Max, F) -> [F(Max)];
 for(I, Max, F)   -> [F(I)|for(I+1, Max, F)].
 
+%% Clearly written (but inefficient) quicksort implementation.
 qsort([])        -> [];
 qsort([Pivot|T]) -> 
     qsort([X || X <- T, X < Pivot])
