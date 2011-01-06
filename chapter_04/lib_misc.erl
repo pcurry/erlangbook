@@ -1,5 +1,5 @@
 -module(lib_misc).
--export([perms/1, pythag/1, qsort/1, sum/1, for/3]).
+-export([perms/1, pythag/1, qsort/1, sqrt/1, sum/1, for/3]).
 
 sum(L)  -> sum(L, 0).
 
@@ -37,7 +37,6 @@ odds_and_evens(L) ->
     Evens = [X || X <- L, (X rem 2) =:= 0],
     {Odds, Evens}.
 
-
 %% Splits the list of numbers more efficiently, using accumulators.
 odds_and_evens_acc(L) ->
     odds_and_evens_acc(L, [], []).
@@ -48,4 +47,10 @@ odds_and_evens_acc([H|T], Odds, Evens) ->
 	0 -> odds_and_evens_acc(T, Odds, [H|Evens]) 
     end;
 odds_and_evens_acc([], Odds, Evens) -> {Odds, Evens}.
+
+
+%%% Chapter 4
+sqrt(X) when X < 0 ->
+    erlang:error({squareRootNegativeArgument, X});
+sqrt(X) -> math:sqrt(X).
 
