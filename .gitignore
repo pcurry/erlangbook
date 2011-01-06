@@ -1,0 +1,4 @@
+# Erlang book ignore file.
+# Ignore compiled objects, and Emacs-created backup files.
+*.beam
+*.erl~
