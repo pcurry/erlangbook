@@ -1,2 +1,0 @@
-#!/bin/bash
-erl -noshell -pa /User \ -s hello start -s init stop
