@@ -11,6 +11,13 @@ demo1() -> [catcher(I) || I <- [1,2,3,4,5]].
 
 demo2() -> [{I, (catch generate_exception(I))} || I <- [1,2,3,4,5]].
 
+demo3() ->
+    try generate_exception(5)
+    catch 
+	error:X ->
+	    {X, erlang:get_stacktrace()}
+    end.
+
 catcher(N) ->
 	try generate_exception(N) of 
 	    Val -> {N, normal, Val}
