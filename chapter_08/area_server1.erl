@@ -17,7 +17,7 @@ loop() ->
 	{From, {circle, R}} ->
 	    From ! 3.14159 * R * R,
 	    loop();
-	Other ->
+	{From, Other} ->
 	    From ! {self(), {error, Other}},
 	    loop()
     end.
